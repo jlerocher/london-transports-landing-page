@@ -1,22 +1,18 @@
 "use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Bus, Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Bus, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const navItems = [
-  { name: 'Routes', href: '#routes' },
-  { name: 'Fleet', href: '#fleet' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Reviews', href: '#reviews' },
-  { name: 'Contact', href: '#contact' },
+  { name: "Routes", href: "#routes" },
+  { name: "Fleet", href: "#fleet" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "Reviews", href: "#reviews" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navbar() {
@@ -26,18 +22,18 @@ export function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <motion.header
       className={`fixed top-0 w-full z-50 transition-colors duration-300 ${
-        isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm" : "bg-transparent"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.1 }}
     >
       <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
@@ -51,12 +47,12 @@ export function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium hover:text-red-600 transition-colors"
+              className="text-base font-medium hover:text-red-600 transition-colors"
             >
               {item.name}
             </Link>
           ))}
-          <Button>Book Now</Button>
+          <Button className="bg-red-500 font-bold">Book Now</Button>
         </div>
 
         {/* Mobile Navigation */}
@@ -77,7 +73,7 @@ export function Navbar() {
                   {item.name}
                 </Link>
               ))}
-              <Button className="w-full">Book Now</Button>
+              <Button className="w-full bg-red-500 font-bold">Book Now</Button>
             </div>
           </SheetContent>
         </Sheet>

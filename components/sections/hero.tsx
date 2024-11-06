@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { DepartureBoardWidget } from '@/components/widgets/departure-board';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { DepartureBoardWidget } from "@/components/widgets/departure-board";
 
 export function HeroSection() {
   const [ref, inView] = useInView({
@@ -34,18 +34,20 @@ export function HeroSection() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-              Your Journey,{' '}
-              <span className="text-red-600">Our Priority</span>
+              Your Journey, <span className="text-red-600">Our Priority</span>
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-              Experience London's most advanced transit system with real-time tracking, 
-              instant booking, and premium fleet services.
+              Experience London's most advanced transit system with real-time
+              tracking, instant booking, and premium fleet services.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-red-600 hover:bg-red-700">
+              <Button
+                size="lg"
+                className="bg-red-600 hover:bg-red-700 font-bold"
+              >
                 Book Your Journey
               </Button>
-              <Button size="lg" variant="outline">
+              <Button size="lg" variant="ghost">
                 View Live Routes
               </Button>
             </div>
